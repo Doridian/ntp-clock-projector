@@ -97,7 +97,6 @@ void setup() {
 
     matrix.begin(0x70);
 
-    Serial.begin(115200);
     settimeofday_cb(time_is_set);
 
     // configTime(TZ_SEC, DST_SEC, "pool.ntp.org");
