@@ -60,7 +60,7 @@ static const uint8_t numbertable_mirrored[] = {
     0b0000000001011111, /* 6 ACDEFG */
     0b0000000000110001, /* 7 ABE */
     0x7F, /* 8 */
-    0b0000000001110011, /* 9 ABCDE */
+    0b0000000001111011, /* 9 ABCDE */
 };
 
 static const uint16_t alphafonttable[] PROGMEM =  {
