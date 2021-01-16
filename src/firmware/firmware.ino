@@ -103,7 +103,7 @@ void setup() {
     // configTime(TZ_SEC, DST_SEC, "pool.ntp.org");
     configTime(MYTZ, "pool.ntp.org");
     WiFi.mode(WIFI_STA);
-    WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+    WiFi.begin(SSID, SSIDPWD);
 }
 
 void loop() {
