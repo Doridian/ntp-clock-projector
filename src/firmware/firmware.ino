@@ -36,7 +36,7 @@ int last_minute = -1;
 int last_hour = -1;
 bool last_colon = false;
 
-void write_time(const tm* tm) {
+void write_time() {
     if (WiFi.status() == WL_CONNECTED) {
         colon = 1;
     } else if (millis() - last_blink_time >= DISCONNECTED_T) {
@@ -49,6 +49,10 @@ void write_time(const tm* tm) {
     int hour = 88;
 
     if (cbtime_set) {
+        time_t now;
+        now = time(nullptr);
+        const tm* tm = localtime(&now);
+
         minute = tm->tm_min;
         hour = tm->tm_hour;
         if (hour == 24) {
@@ -103,14 +107,9 @@ void setup() {
     WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 }
 
-time_t now;
-
 void loop() {
   if (millis() - last_clock_update >= CLOCK_UPDATE_T) {
     last_clock_update = millis();
-
-    now = time(nullptr);
-
-    write_time(localtime(&now));
+    write_time();
   }
 }
