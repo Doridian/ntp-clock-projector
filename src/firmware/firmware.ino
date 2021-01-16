@@ -90,8 +90,6 @@ void setup() {
     // On the esp8266, you can manually specify the i2c pins.
     Wire.begin();  // SDA=A5=D2, SCL=A4=D1
 
-    last_blink_time = 0;
-
     pinMode(LED_BUILTIN, OUTPUT);
     digitalWrite(LED_BUILTIN, HIGH); // Turn off built-in LED always
 
