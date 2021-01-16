@@ -49,8 +49,7 @@ void write_time() {
     int hour = 88;
 
     if (cbtime_set) {
-        time_t now;
-        now = time(nullptr);
+        const time_t now = time(nullptr);
         const tm* tm = localtime(&now);
 
         minute = tm->tm_min;
