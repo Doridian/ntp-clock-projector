@@ -12,7 +12,7 @@
 #include <TZ.h>
 #include <Wire.h>
 #include "Adafruit_GFX.h"
-#include "Adafruit_LEDBackpack.h"
+#include "Adafruit_LEDBackpack_Mirrored.h"
 
 #include "credentials.h" // Needs WIFI_SSID and WIFI_PASSWORD
 
@@ -28,7 +28,7 @@ unsigned long last_blink_time = 0;
 
 bool cbtime_set = false;
 
-Adafruit_7segment matrix = Adafruit_7segment();
+Adafruit_7segment_Mirrored matrix = Adafruit_7segment_Mirrored();
 
 bool colon = true;
 
