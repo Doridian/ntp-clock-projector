@@ -13,12 +13,10 @@ static const uint8_t numbertable_mirrored[] = {
     0b0000000001111011, /* 9 ABCDE */
 };
 
-void Adafruit_7segment_Mirrored::writeDigitNumMirrored(uint8_t d, uint8_t num, boolean dot) {
-  if (d > 4) return;
-  writeDigitRaw(d, numbertable_mirrored[num] | (dot << 7));
+void Adafruit_7segment_Mirrored::writeDigitNumMirrored(uint8_t d, uint8_t num) {
+  displaybuffer[d] = numbertable_mirrored[num];
 }
 
 void Adafruit_7segment_Mirrored::turnOffDigit(uint8_t d) {
-  if (d > 4) return;
   displaybuffer[d] = 0b0000000000000000;
 }

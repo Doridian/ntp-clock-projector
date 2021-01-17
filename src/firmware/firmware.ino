@@ -70,12 +70,12 @@ void write_time() {
         int hour1 = hour/1%10;
         int hour2 = hour/10%10;
         
-        matrix.writeDigitNumMirrored(0, minute1, false);  // minute, low digit
-        matrix.writeDigitNumMirrored(1, minute2, false);  // minute, high digit
+        matrix.writeDigitNumMirrored(0, minute1);  // minute, low digit
+        matrix.writeDigitNumMirrored(1, minute2);  // minute, high digit
         matrix.drawColon(colon);
-        matrix.writeDigitNumMirrored(3, hour1, false);  // hour, low digit
+        matrix.writeDigitNumMirrored(3, hour1);  // hour, low digit
         if (hour2) {
-          matrix.writeDigitNumMirrored(4, hour2, false);  // hour, high digit
+          matrix.writeDigitNumMirrored(4, hour2);  // hour, high digit
         } else {
           matrix.turnOffDigit(4);
         }
