@@ -12,7 +12,7 @@
 class Adafruit_7segment_Mirrored : public Adafruit_7segment {
     public:
     void writeDigitNumMirrored(uint8_t x, uint8_t num);
-    void turnOffDigit(uint8_t x);
+    void writeDigitNumMirroredNoZero(uint8_t x, uint8_t num);
 };
 
 #endif

@@ -30,8 +30,8 @@ Adafruit_7segment_Mirrored matrix = Adafruit_7segment_Mirrored();
 
 bool colon = true;
 
-int last_minute = -1;
-int last_hour = -1;
+int8_t last_minute = -1;
+int8_t last_hour = -1;
 bool last_colon = false;
 
 void write_time() {
@@ -43,8 +43,8 @@ void write_time() {
         last_blink_time = millis();
     }
 
-    int minute = 88;
-    int hour = 88;
+    int8_t minute = 88;
+    int8_t hour = 88;
 
     if (cbtime_set) {
         const time_t now = time(nullptr);
@@ -62,21 +62,11 @@ void write_time() {
         last_minute = minute;
         last_colon = colon;
         
-        int minute1 = minute/1%10;
-        int minute2 = minute/10%10;
-
-        int hour1 = hour/1%10;
-        int hour2 = hour/10%10;
-        
-        matrix.writeDigitNumMirrored(0, minute1);  // minute, low digit
-        matrix.writeDigitNumMirrored(1, minute2);  // minute, high digit
+        matrix.writeDigitNumMirrored(0, minute % 10);  // minute, low digit
+        matrix.writeDigitNumMirrored(1, minute / 10);  // minute, high digit
         matrix.drawColon(colon);
-        matrix.writeDigitNumMirrored(3, hour1);  // hour, low digit
-        if (hour2) {
-          matrix.writeDigitNumMirrored(4, hour2);  // hour, high digit
-        } else {
-          matrix.turnOffDigit(4);
-        }
+        matrix.writeDigitNumMirrored(3, hour % 10);  // hour, low digit
+        matrix.writeDigitNumMirroredNoZero(4, hour / 10);  // hour, high digit
 
         matrix.writeDisplay();
     }
