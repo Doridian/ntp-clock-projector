@@ -10,8 +10,6 @@
 #include <sys/time.h>                   // struct timeval
 #include <coredecls.h>                  // settimeofday_cb()
 #include <TZ.h>
-#include <Wire.h>
-#include "Adafruit_GFX.h"
 #include "Adafruit_LEDBackpack_Mirrored.h"
 
 #include "credentials.h" // Needs WIFI_SSID and WIFI_PASSWORD
@@ -88,11 +86,9 @@ void time_is_set(void) {
     cbtime_set = true;
 }
 
-void setup() {
-    // https://github.com/esp8266/Arduino/blob/master/libraries/Wire/Wire.cpp
-    // On the esp8266, you can manually specify the i2c pins.
-    Wire.begin();  // SDA=A5=D2, SCL=A4=D1
+// SDA -> D2, SCL -> D1, VCC -> 3V3, GND -> GND
 
+void setup() {
     pinMode(LED_BUILTIN, OUTPUT);
     digitalWrite(LED_BUILTIN, HIGH); // Turn off built-in LED always
 
